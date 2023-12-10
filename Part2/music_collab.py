@@ -45,7 +45,7 @@ def collab(danceability,openai_api_key):
     index_creator = VectorstoreIndexCreator()
     docsearch = index_creator.from_loaders([loader])
    
-    chain = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.7, openai_api_key=openai_api_key), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
+    chain = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.7, api_key=openai_api_key), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
     query = "if my danceability is" + str(danceability) + ", what artist should I collaborate with"
