@@ -34,7 +34,7 @@ def generate_response(input_text):
     st.info(llm(input_text))
 
 
-def collab(danceability):
+def collab(danceability,openai_api_key):
   
     file_path = '/data/training.csv'
   
