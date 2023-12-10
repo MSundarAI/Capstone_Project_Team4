@@ -36,7 +36,7 @@ def generate_response(input_text):
 
 def collab(danceability,openai_api_key):
   
-    file_path = '/data/training.csv'
+    file_path = '/Capstone_Project_Team4/Part2/data/training.csv'
     os.environ["OPENAI_API_KEY"] = openai_api_key
     # Load the dataset
     loader = CSVLoader(file_path=file_path)
