@@ -10,8 +10,24 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
 import os
 
+st.set_page_config(page_title="Team CA", page_icon="🎹", layout="wide")
+# Set title
+st.title("Team CA Collaboration Tool", anchor=False)
+st.header("Find out who you should collalborate with to reach the next step in your musical journey", anchor=False)
 
+# Select variables
+st.divider()
+loudness = st.slider('Select a loudness value', min_value=1, max_value=10)
+danceability = st.slider('Select a danceability value', min_value=1, max_value=10)
+
+# Submit button
+st.divider()
+submit_button = st.button('Find Best Match')
+
+# display openai key message
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+
+
 
 def generate_response(input_text):
     llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
@@ -35,23 +51,6 @@ def collab(danceability):
     query = "if my danceability is" + str(danceability) + ", what artist should I collaborate with"
     response = chain({"question": query})
     return response['result']
-
-# Set page title
-st.set_page_config(page_title="Team CA", page_icon="🎹", layout="wide")
-
-
-# Set title
-st.title("Team CA Collaboration Tool", anchor=False)
-st.header("Find out who you should collalborate with to reach the next step in your musical journey", anchor=False)
-
-# Select variables
-st.divider()
-loudness = st.slider('Select a loudness value', min_value=1, max_value=10)
-danceability = st.slider('Select a danceability value', min_value=1, max_value=10)
-
-# Submit button
-st.divider()
-submit_button = st.button('Find Best Match')
 
 # checking if variables have value
 if submit_button and danceability:
