@@ -1,0 +1,9 @@
+pandas
+langchain
+torch
+transformers
+chromadb
+tiktoken
+openai
+numpy
+requests
