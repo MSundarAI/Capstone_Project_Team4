@@ -26,7 +26,7 @@ submit_button = st.button('Find Best Match')
 
 # display openai key message
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
-
+st.write(openai_api_key)
 
 
 def generate_response(input_text):
@@ -37,7 +37,7 @@ def generate_response(input_text):
 def collab(danceability,openai_api_key):
   
     file_path = '/data/training.csv'
-  
+    os.environ["OPENAI_API_KEY"] = openai_api_key
     # Load the dataset
     loader = CSVLoader(file_path=file_path)
     
@@ -45,7 +45,7 @@ def collab(danceability,openai_api_key):
     index_creator = VectorstoreIndexCreator()
     docsearch = index_creator.from_loaders([loader])
    
-    chain = RetrievalQA.from_chain_type(llm=OpenAI(temperature=0.7, api_key=openai_api_key), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
+    chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
     query = "if my danceability is" + str(danceability) + ", what artist should I collaborate with"
