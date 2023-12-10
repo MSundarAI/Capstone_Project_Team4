@@ -55,7 +55,7 @@ def collab(danceability,openai_api_key):
 # checking if variables have value
 if submit_button and danceability:
     with st.spinner("Processing..."):
-        summary = collab(danceability)
+        summary = collab(danceability,openai_api_key)
         
         # Show Summary
         st.subheader("Summary:", anchor=False)
