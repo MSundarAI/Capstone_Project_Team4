@@ -40,7 +40,7 @@ def collab(danceability,openai_api_key):
     file_path = './Part2/data/training.csv'
     os.environ["OPENAI_API_KEY"] = openai_api_key
     # Load the dataset
-    loader = CSVLoader(file_path=file_path)
+    loader = CSVLoader(file_path=file_path,encoding="utf-8")
     
     # Create an index using the loaded documents
     index_creator = VectorstoreIndexCreator()
