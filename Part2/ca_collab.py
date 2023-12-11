@@ -17,7 +17,8 @@ import os
 
 st.set_page_config(page_title="Team CA", page_icon="🎹", layout="wide")
 # Set title
-st.title("Team CA Collaboration Tool", anchor=False)
+st.image('./Part2/images/logo.png', width=100,caption = None)
+st.title("CA Collaboration Tool", anchor=False)
 st.header("Find out who you should collalborate with to reach the next step in your musical journey", anchor=False)
 
 # Select variables
