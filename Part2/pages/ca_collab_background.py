@@ -56,7 +56,7 @@ def chart_afi(df_chart, color_chart, artist_name=None):
         fig.suptitle("Full Dataset Audio Features Index", fontsize=title_font_size)
 
     plt.tight_layout()
-    return fig.show()
+    return fig
 
 def chart_aafi(df, artist, color):
   df_artist = df[df['artist'].str.contains(artist, na=False)]
