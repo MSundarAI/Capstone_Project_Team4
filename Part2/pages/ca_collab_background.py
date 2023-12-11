@@ -18,7 +18,6 @@ st.markdown(
 The trend of collaboration in the music industry caught our eyes from **10%**-20%** around 3 decades ago almost tripling to approaching **30%+** of the top music charts nowadays. 
 We randomly take the 2023/7/28 Billboard Top 100, there are 40 songs out of 100 songs are collaborations. The **40%** landmark signals loudly the new trend in the music industry. It motivates us to create a “Collab Index/Score” dashboard concept to analyze how the artist is popular for collab success and how inter-related they are to audio features
 
-The following chart below is a dynamic bar plot of top artists and the result of their audio features. 
 """)
 
 
@@ -77,6 +76,10 @@ def chart_aafi(df, artist, color):
 
 
 st.title("Audio Features Analysis")
+st.markdown(
+"""
+The following chart below is a dynamic bar plot of top artists and the result of their audio features. 
+""")
 
 file_path = './Part2/data/artistfeatures.csv'
 df_ac = pd.read_csv(file_path)
@@ -109,3 +112,6 @@ These features were collected from Spotify, for further explainability, see belo
 - **loudness**: The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.
 - **tempo**: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.
 """)
+
+
+st.title("Radar Chart of Audio Features Index")
