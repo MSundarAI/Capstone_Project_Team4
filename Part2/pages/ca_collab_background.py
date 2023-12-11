@@ -79,4 +79,5 @@ else:
 selected_artist = st.selectbox("Select an Artist", options=artist_names, index=default_index)
 
 # display plot
-chart_aafi(df=df_ac, artist=selected_artist, color='magma')
+fig = chart_aafi(df=df_ac, artist=selected_artist, color='magma')
+st.pyplot(fig)
