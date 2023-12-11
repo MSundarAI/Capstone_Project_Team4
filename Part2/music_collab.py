@@ -38,7 +38,7 @@ submit_button = st.button('Find Best Match')
 
 # display openai key message
 openai_api_key = st.sidebar.text_input('OpenAI API Key', type='password')
-st.write("API key entered:"openai_api_key)
+st.write("API key entered:",openai_api_key)
 
 
 

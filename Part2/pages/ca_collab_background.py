@@ -16,7 +16,9 @@ st.markdown(
 (Taylor Swift))"
 
 The trend of collaboration in the music industry caught our eyes from **10%**-20%** around 3 decades ago almost tripling to approaching **30%+** of the top music charts nowadays. 
-We randomly take the 2023/7/28 Billboard Top 100, there are 40 songs out of 100 songs are collaborations. The **40%** landmark signals loudly the new trend in the music industry. It motivates us to create a “Collab Index/Score” dashboard concept to analyze how the artist is popular for collab success and how the audio features
+We randomly take the 2023/7/28 Billboard Top 100, there are 40 songs out of 100 songs are collaborations. The **40%** landmark signals loudly the new trend in the music industry. It motivates us to create a “Collab Index/Score” dashboard concept to analyze how the artist is popular for collab success and how inter-related they are to audio features
+
+The following chart below is a dynamic bar plot of top artists and the result of their audio features. 
 """)
 
 
@@ -92,3 +94,18 @@ selected_artist = st.selectbox("Select an Artist", options=artist_names, index=d
 # display plot
 fig = chart_aafi(df=df_ac, artist=selected_artist, color='magma')
 st.pyplot(fig,clear_figure=True)
+
+
+st.markdown(
+
+"""
+These features were collected from Spotify, for further explainability, see below for brief definitions:
+- **acousticness**: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic..
+- **danceability**: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
+- **duration_ms**: The duration of the track in milliseconds.
+- **energy**: Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
+- **instrumentalness**: Predicts whether a track contains no vocals. "Ooh" and "aah" sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly "vocal". The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.
+- **liveness**: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.
+- **loudness**: The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.
+- **duration_ms**: The duration of the track in milliseconds.
+""")
