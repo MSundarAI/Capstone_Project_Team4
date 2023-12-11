@@ -25,12 +25,12 @@ st.header("Find out who you should collalborate with to reach the next step in y
 st.divider()
 tempo = st.slider('Select a tempo value', 1, 250,step=1)
 loudness = st.slider('Select a loudness value', -60, 0,step=1)
-danceability = st.slider('Select a danceability value', 0, 1,step=0.1)
-liveness = st.slider('Select a liveness value', 0, 1,step=0.1)
-energy = st.slider('Select a energy value', 0, 1,step=0.1)
+danceability = st.slider('Select a danceability value', 0.0, 1.0,step=0.1)
+liveness = st.slider('Select a liveness value', 0.0, 1.0,step=0.1)
+energy = st.slider('Select a energy value', 0.0, 1.0,step=0.1)
 duration = st.slider('Select a duration_ms value', 100000, 400000,step=50000)
-acousticness = st.slider('Select a acousticness value', 0, 1,step=0.1)
-instrumentalness = st.slider('Select a instrumentalness value', 0, 1,step=0.1)
+acousticness = st.slider('Select a acousticness value',0.0, 1.0,step=0.1)
+instrumentalness = st.slider('Select a instrumentalness value',0.0, 1.0,step=0.1)
 
 # Submit button
 st.divider()
