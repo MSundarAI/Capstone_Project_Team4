@@ -72,7 +72,7 @@ def chorus(artist_to_collab,openai_api_key):
     chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
-    query = "if my recommended artist is" + str(artist_to_collab) + ", what will be my hit chorus line"
+    query = "if my recommended artist is" + artist_to_collab + ", what will be my hit chorus line, please write the chorus line"
     response = chain({"question": query})
     return response['result']   
 
