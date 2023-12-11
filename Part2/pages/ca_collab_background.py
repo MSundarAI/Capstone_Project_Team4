@@ -115,3 +115,16 @@ These features were collected from Spotify, for further explainability, see belo
 
 
 st.title("Radar Chart of Audio Features Index")
+st.markdown(
+
+"""
+We derived a collaboration index with our final dataset to understand how likely an artist will be successful if they collaborate with another artist.
+We can see in the radar charts below. If the Weeknd and Ariana Grande collaborated, their chances of success on collaborating with each other would be high
+and desirable 
+"""
+)
+st.image('./Part2/images/first_radar.png',caption = None)
+
+st.image('./Part2/images/second_radar.png',caption = None)
+
+st.image('./Part2/images/third_radar.png',caption = None)
