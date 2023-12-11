@@ -59,11 +59,30 @@ def collab(danceability,openai_api_key):
     response = chain({"question": query})
     return response['result']
 
+def chorus(artist_to_collab,openai_api_key):
+    file_path = './Part2/data/training.csv'
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    # Load the dataset
+    loader = CSVLoader(file_path=file_path,encoding="utf-8")
+    
+    # Create an index using the loaded documents
+    index_creator = VectorstoreIndexCreator()
+    docsearch = index_creator.from_loaders([loader])
+   
+    chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
+   
+    # Run the chain
+    query = "if my recommended artist is" + str(artist_to_collab) + ", what will be my hit chorus line"
+    response = chain({"question": query})
+    return response['result']   
+
 # checking if variables have value
 if submit_button and danceability:
     with st.spinner("Processing..."):
-        summary = collab(danceability,openai_api_key)
-        
-        # Show Summary
-        st.subheader("Summary:", anchor=False)
-        st.write(summary)
+        artist_to_collab = collab(danceability,openai_api_key)
+        chorus_to_rec = chorus(artist_to_collab,openai_api_key)
+        # Recommendations
+        st.subheader("Artist Recommendation:", anchor=False)
+        st.write(artist_to_collab)
+        st.subheader("Chorus Recommendation:", anchor=False)
+        st.write(chorus)
