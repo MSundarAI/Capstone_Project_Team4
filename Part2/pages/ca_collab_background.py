@@ -76,7 +76,7 @@ if default_artist in artist_names:
 else:
     default_index = 0 
 # dropdown
-selected_artist = st.selectbox("Select an Artist", options=artist_names, index=artist_names[default_index])
+selected_artist = st.selectbox("Select an Artist", options=artist_names, index=default_index)
 
 # display plot
 chart_aafi(df=df_ac, artist=selected_artist, color='magma')
