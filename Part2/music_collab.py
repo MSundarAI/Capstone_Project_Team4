@@ -47,7 +47,7 @@ def generate_response(input_text):
     st.info(llm(input_text))
 
 
-def collab(danceability,openai_api_key):
+def collab(danceability,tempo,energy,openai_api_key):
   
     file_path = './Part2/data/demo.csv'
     os.environ["OPENAI_API_KEY"] = openai_api_key
@@ -61,14 +61,17 @@ def collab(danceability,openai_api_key):
     chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
-    query = "if my danceability is" + str(danceability) + ", what artist should I collaborate with, give me the best 1 recommendation that you can"
+    query = "if my danceability is" + str(danceability)  
+    + "if my tempo is " + str(tempo)
+    + "if my energy is " + str(energy)
+    + ", what artist should I collaborate with, give me the best 1 recommendation that you can"
     response = chain({"question": query})
     return response['result']
 
 # checking if variables have value
-if submit_button and danceability:
+if submit_button:
     with st.spinner("Processing..."):
-        artist_to_collab = collab(danceability,openai_api_key)
+        artist_to_collab = collab(danceability,tempo,energy,openai_api_key)
         # Recommendations
         st.subheader("Artist Recommendation:", anchor=False)
         st.write(artist_to_collab)
