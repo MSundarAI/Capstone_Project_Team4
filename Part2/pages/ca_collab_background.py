@@ -65,7 +65,7 @@ def chart_aafi(df, artist, color):
 
 st.title("Audio Features Analysis")
 
-file_path = './Part2/data/training.csv'
+file_path = './Part2/data/artistfeatures.csv'
 df_ac = pd.read_csv(file_path)
 
 # Extract unique artist names for the dropdown
