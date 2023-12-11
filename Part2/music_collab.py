@@ -23,8 +23,14 @@ st.header("Find out who you should collalborate with to reach the next step in y
 
 # Select variables
 st.divider()
-loudness = st.slider('Select a loudness value', min_value=1, max_value=10)
-danceability = st.slider('Select a danceability value', min_value=1, max_value=10)
+tempo = st.slider('Select a tempo value', min_value=1, max_value=250,step=1)
+loudness = st.slider('Select a loudness value', min_value=-60, max_value=0,step=1)
+danceability = st.slider('Select a danceability value', min_value=0, max_value=1,step=0.1)
+liveness = st.slider('Select a liveness value', min_value=0, max_value=1,step=0.1)
+energy = st.slider('Select a energy value', min_value=0, max_value=1,step=0.1)
+duration = st.slider('Select a duration_ms value', min_value=100000, max_value=400000,step=50000)
+acousticness = st.slider('Select a acousticness value', min_value=0, max_value=1,step=0.1)
+instrumentalness = st.slider('Select a instrumentalness value', min_value=0, max_value=1,step=0.1)
 
 # Submit button
 st.divider()
@@ -43,7 +49,7 @@ def generate_response(input_text):
 
 def collab(danceability,openai_api_key):
   
-    file_path = './Part2/data/training.csv'
+    file_path = './Part2/data/demo.csv'
     os.environ["OPENAI_API_KEY"] = openai_api_key
     # Load the dataset
     loader = CSVLoader(file_path=file_path,encoding="utf-8")
@@ -59,30 +65,10 @@ def collab(danceability,openai_api_key):
     response = chain({"question": query})
     return response['result']
 
-def chorus(artist_to_collab,openai_api_key):
-    file_path = './Part2/data/training.csv'
-    os.environ["OPENAI_API_KEY"] = openai_api_key
-    # Load the dataset
-    loader = CSVLoader(file_path=file_path,encoding="utf-8")
-    
-    # Create an index using the loaded documents
-    index_creator = VectorstoreIndexCreator()
-    docsearch = index_creator.from_loaders([loader])
-   
-    chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
-   
-    # Run the chain
-    query = "if my recommended artist is" + artist_to_collab + ", come up with an example hit chorus line for me, please write the chorus line"
-    response = chain({"question": query})
-    return response['result']   
-
 # checking if variables have value
 if submit_button and danceability:
     with st.spinner("Processing..."):
         artist_to_collab = collab(danceability,openai_api_key)
-        chorus_to_rec = chorus(artist_to_collab,openai_api_key)
         # Recommendations
         st.subheader("Artist Recommendation:", anchor=False)
         st.write(artist_to_collab)
-        st.subheader("Chorus Recommendation:", anchor=False)
-        st.write(chorus_to_rec)
