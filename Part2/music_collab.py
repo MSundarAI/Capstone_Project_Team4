@@ -61,10 +61,7 @@ def collab(danceability,tempo,energy,openai_api_key):
     chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
-    query = "if my danceability is" + str(danceability)  
-    + "if my tempo is " + str(tempo)
-    + "if my energy is " + str(energy)
-    + ", what artist should I collaborate with, give me the best 1 recommendation that you can"
+    query = "if my danceability is" + str(danceability)  + ", if my tempo is " + str(tempo) + ", if my energy is " + str(energy) + ", what artist should I collaborate with, give me the best 1 recommendation that you can"
     response = chain({"question": query})
     return response['result']
 
