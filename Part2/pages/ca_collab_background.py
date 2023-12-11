@@ -8,6 +8,17 @@ import pandas as pd
 st.set_page_config(page_title="background", page_icon="🎹", layout="wide")
 st.image('./Part2/images/logo.png', width=100,caption = None)
 
+st.markdown(
+
+"""
+# Project
+>"Music is changing so quickly, and the landscape of the music industry itself is changing so quickly, that everything new, like Spotify, all feels to me a bit like a grand experiment
+(Taylor Swift))"
+
+The trend of collaboration in the music industry caught our eyes from **10%**-20%** around 3 decades ago almost tripling to approaching **30%+** of the top music charts nowadays. 
+We randomly take the 2023/7/28 Billboard Top 100, there are 40 songs out of 100 songs are collaborations. The **40%** landmark signals loudly the new trend in the music industry. It motivates us to create a “Collab Index/Score” dashboard concept to analyze how the artist is popular for collab success and how the audio features
+""")
+
 
 
 def chart_afi(df_chart, color_chart, artist_name=None):
