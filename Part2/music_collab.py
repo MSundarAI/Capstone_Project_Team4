@@ -61,7 +61,7 @@ def collab(danceability,tempo,energy,loudness,liveness,duration,acousticness,ins
     chain = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=docsearch.vectorstore.as_retriever(), input_key="question")
    
     # Run the chain
-    query = "if my danceability is" + str(danceability)  + ", if my tempo is " + str(tempo) + ", if my energy is " + str(energy) + ", if my loudness is " + str(loudness) + ", if my liveness is " + str(liveness) + ", if my duration is " + str(duration) + ", if my acousticness is " + str(acousticness) + ", if my instrumentalness is " + str(instrumentalness)  + ", what artist should I collaborate with, give me the best 1 recommendation that you can"
+    query = "if my danceability is" + str(danceability)  + ", if my tempo is " + str(tempo) + ", if my energy is " + str(energy) + ", if my loudness is " + str(loudness) + ", if my liveness is " + str(liveness) + ", if my duration is " + str(duration) + ", if my acousticness is " + str(acousticness) + ", if my instrumentalness is " + str(instrumentalness)  + ", what artist should I collaborate with, give me the best 1 recommendation that you can, then give me the collab index, which is the overall success rate of the collaboration, then give me the other values of other features and why you chose this artist"
     response = chain({"question": query})
     return response['result']
 
