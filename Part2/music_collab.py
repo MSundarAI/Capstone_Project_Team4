@@ -15,7 +15,7 @@ from langchain.indexes import VectorstoreIndexCreator
 from langchain.chains import RetrievalQA
 import os
 
-st.set_page_config(page_title="Team CA", page_icon="🎹", layout="wide")
+st.set_page_config(page_title="CA Collab", page_icon="🎹", layout="wide")
 # Set title
 st.image('./Part2/images/logo.png', width=100,caption = None)
 st.title("CA Collaboration Tool", anchor=False)

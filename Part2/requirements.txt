@@ -8,3 +8,4 @@ openai
 numpy
 requests
 pysqlite3-binary
+matplotlib
