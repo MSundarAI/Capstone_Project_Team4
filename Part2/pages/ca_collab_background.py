@@ -71,6 +71,10 @@ df_ac = pd.read_csv(file_path)
 # Extract unique artist names for the dropdown
 artist_names = df_ac['artist'].unique()
 default_artist = 'Justin Bieber'
+if default_artist in artist_names:
+    default_index = np.where(artist_names == default_artist)[0][0]
+else:
+    default_index = 0 
 # dropdown
 selected_artist = st.selectbox("Select an Artist", options=artist_names, index=np.where(artist_names == default_artist)[0][0])
 
