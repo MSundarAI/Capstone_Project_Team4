@@ -7,3 +7,4 @@ tiktoken
 openai
 numpy
 requests
+pysqlite3-binary
