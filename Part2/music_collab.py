@@ -85,4 +85,4 @@ if submit_button and danceability:
         st.subheader("Artist Recommendation:", anchor=False)
         st.write(artist_to_collab)
         st.subheader("Chorus Recommendation:", anchor=False)
-        st.write(chorus)
+        st.write(chorus_to_rec)
