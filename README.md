@@ -5,7 +5,9 @@
 
 #### Clone Repository
 
-To get a copy of our project running on your local machine, simply run the git clone command
+To get a copy of our project running on your local machine, simply run the git clone command.
+You can cd into Part2 if you want to run Streamlit app or if you are interested in how the collaboration index
+and source datasets were derived you may cd into Part 1
 
 ```
 git clone https://github.com/MSundarAI/Capstone_Project_Team4.git

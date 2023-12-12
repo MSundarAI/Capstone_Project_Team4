@@ -1,0 +1,8 @@
+pandas
+matplotlib
+numpy
+requests
+billboard.py
+spotipy
+base64
+math
