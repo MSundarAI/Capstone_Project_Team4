@@ -50,6 +50,13 @@ streamlit run music_collab.py
 And if you want to deploy your own version, follow these [instructions](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app)
 
 
-###Run Intermediate Notebooks
+### Run Intermediate Notebooks
 
 You can go through folders Part1 and Part2 and look under Notebooks to find Juypter notebook files to run. As mentioned earlier, you would need api keys for Spotify, Billboard and ChatGPT to run these notebooks successfully 
+
+## About Section:
+#### Masters of Applied Data Science Program Capstone Project - University of Michigan
+#### Team 4 - Team CA Collaboration
+1) Alvin Kuo(alvinkuo@umich.edu)
+2) Sundar Murugesan(msundar@umich.edu)
+
